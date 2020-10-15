@@ -1,0 +1,24 @@
+{% extends 'TodoList/base.html' %}
+{% block content %}
+<div class="container">
+  <div class="row ">
+    {% for list in lists %}
+<div class='col-4'> 
+  <div class="card content-section " style="width: 18rem;">
+    <img class="rounded-circle img" src="{{ list.author.profile.image.url }}">
+    <div class="card-body center">
+      <h3 class="card-title"><a class="article-title" href="{% url 'list-detail' list.id %}">{{ list.ListName }}</a></h3>
+      <ul class="card-text">
+        <li>{{ list.content }}</li>
+      </p>
+      <a class="mr-2" href="#">{{ list.author }} <small class="text-muted">{{ list.date_posted|date:"F d, Y" }}</small></a>
+    </div>
+  </div>
+  </div>
+  {% endfor %}
+</div>
+</div>
+
+    
+{% endblock content%}
+
